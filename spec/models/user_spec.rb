@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe User do
 	before do
-		@user = User.new(name: "Example User", email: "m.taku7@gmail.com")
+		@user = User.new(name: "Example User", email: "user@example.com",
+                   password: "foobar", password_confirmation: "foobar")
 	end
 
 	# before ブロックは前処理用で、各サンプルが実行される前にそのブロックの中のコードを実行します。
@@ -12,6 +13,9 @@ describe User do
 
 	it { should respond_to(:name) }
 	it { should respond_to(:email) }
+	it { should respond_to(:password_digest) }
+	it { should respond_to(:password) }
+  	it { should respond_to(:password_confirmation) }
 
 	# name属性とemail属性の存在をテストします。
 
